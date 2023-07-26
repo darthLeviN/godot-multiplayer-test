@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ypy06abuf44p"]
+
+[sub_resource type="Environment" id="Environment_hacx1"]
+glow_blend_mode = 3
+glow_hdr_threshold = 0.0
+volumetric_fog_density = 0.0
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_detail_spread = 4.70751
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.515621, 0.856817, 0, -0.856817, 0.515621, 0.0649149, 0, 0.628862)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hacx1")

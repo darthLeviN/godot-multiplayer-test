@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8xaicaw7a4h2"]
+
+[ext_resource type="PackedScene" uid="uid://eye1smf8wa4h" path="res://multiplayer_control.tscn" id="1_qlaoq"]
+
+[node name="multiplayer_control_gruop" type="VBoxContainer"]
+
+[node name="character_stub" parent="." instance=ExtResource("1_qlaoq")]
+layout_mode = 2
+text = "aaa"
+
+[node name="character_stub2" parent="." instance=ExtResource("1_qlaoq")]
+layout_mode = 2
+text = "aaa"
+
+[node name="character_stub3" parent="." instance=ExtResource("1_qlaoq")]
+layout_mode = 2
+text = "aaa"
+
+[node name="character_stub4" parent="." instance=ExtResource("1_qlaoq")]
+layout_mode = 2
+text = "aaa"
+
+[node name="character_stub5" parent="." instance=ExtResource("1_qlaoq")]
+layout_mode = 2
+text = "aaa"

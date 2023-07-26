@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdyg1jw4pc5o7"]
+
+[ext_resource type="Script" path="res://VBoxContainer.gd" id="1_4lesg"]
+[ext_resource type="Script" path="res://StatusLabel.gd" id="2_edolg"]
+[ext_resource type="Script" path="res://VBoxContainer2.gd" id="3_8nmi2"]
+
+[node name="test_multiplayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_4lesg")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "HOST"
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "IDLE"
+horizontal_alignment = 1
+script = ExtResource("2_edolg")
+
+[node name="HostButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Create Host"
+
+[node name="RPC1" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "RPC1"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="HBoxContainer/VBoxContainer"]
+_spawnable_scenes = PackedStringArray("res://multiplayer_control.tscn")
+spawn_path = NodePath("../Control")
+
+[node name="Control" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_8nmi2")
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Client"
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "IDLE"
+horizontal_alignment = 1
+script = ExtResource("2_edolg")
+
+[node name="JoinHost" type="Button" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+text = "Join host"
+
+[node name="RPC1" type="Button" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+text = "RPC1"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="HBoxContainer/VBoxContainer2"]
+_spawnable_scenes = PackedStringArray("res://multiplayer_control.tscn")
+spawn_path = NodePath("../Control")
+
+[node name="Control" type="MarginContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="multiplayer_control_gruop" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/Control"]
+layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HostButton" to="HBoxContainer/VBoxContainer" method="_on_host_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/RPC1" to="HBoxContainer/VBoxContainer" method="_on_rpc_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/JoinHost" to="HBoxContainer/VBoxContainer2" method="_on_join_host_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/RPC1" to="HBoxContainer/VBoxContainer2" method="_on_rpc_1_pressed"]
