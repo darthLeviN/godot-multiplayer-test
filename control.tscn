@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj32m0gk1ae4l"]
+
+[sub_resource type="GDScript" id="GDScript_vi30q"]
+script/source = "extends Control
+
+
+func _shortcut_input(event):
+	print_debug(event)
+"
+
+[sub_resource type="GDScript" id="GDScript_i3eih"]
+script/source = "extends HBoxContainer
+
+
+#func _shortcut_input(event):
+#	print_debug(event)
+"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.00392157, 0.00392157, 0.00392157, 1)
+
+[node name="Control3" type="Control" parent="HBoxContainer" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 2
+size_flags_horizontal = 3
+shortcut_context = NodePath("../Control2")
+script = SubResource("GDScript_vi30q")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+script = SubResource("GDScript_i3eih")
+
+[node name="ColorRect2" type="ColorRect" parent="HBoxContainer/Control2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+color = Color(0.196078, 0.196078, 0.196078, 1)
